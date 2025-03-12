@@ -1,0 +1,134 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --dark-red: #731932;
+  --bright-red: #b72329;
+  --red: #DD2330;
+  --yellow: #FFD348;
+  --yellow-rgb: 255,211,72;
+  --orange: #FF9B45;
+  --orange-rgb: 255,155,69;
+  --blue: #00A1B8;
+  --purple: #AC204A;
+}
+
+@keyframes bounce {
+	0%, 50%, 100% {transform: translateY(0);}
+	50% {transform: translateY(-1rem);}
+}
+
+@keyframes push-fade-in {
+  0% {
+    transform: translateY(-3vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--yellow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'trade-gothic-next-compressed', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--dark-red);
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: var(--bright-red);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 800;
+}
+
+header {
+  position: relative;
+  z-index: 10;
+}
+
+.hub header {
+  background: url('/top-band.jpg') repeat-x;
+  background-size: contain;
+  height: 10vh;
+}
+
+.bottom-sparkle {
+  position: fixed;
+  z-index: -1;
+  bottom: 1rem;
+  left: 1rem;
+  animation: bounce 1.5s 1;
+  height: 20%;
+  width: auto;
+}
+
+.top-sparkle {
+  position: fixed;
+  z-index: -1;
+  top: 13vh;
+  right: 3%;
+  animation: bounce 1.5s 1;
+  animation-delay: .3s;
+  height: 10%;
+  width: auto;
+}
+
+.question-marks {
+  position: fixed;
+  z-index: -1;
+  bottom: -1rem;
+  right: 1rem;
+  animation: bounce 1.5s 1;
+  animation-delay: .6s;
+  height: 30vh;
+  width: auto;
+}
+
+#error-container {
+  border: 15px solid var(--purple);
+  border-radius: 2.5rem;
+  background-color: #fff;
+  color: #000 !important; 
+  padding: 10%;
+  max-width: 900px;
+}
+
+#error-container h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+}
+
+#error-container p {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

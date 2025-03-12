@@ -1,0 +1,237 @@
+@keyframes ripple {
+	to {
+		transform: scale(5);
+	}
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes push-fade-in {
+  0% {
+    transform: translateY(-3vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+  position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+  }
+}
+
+.logo {
+  max-height: 10vh;
+  width: auto;
+  margin: 2rem 2rem -2rem;
+}
+
+.header h1 {
+  margin-bottom: 0;
+}
+
+.main {
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.hubmain {
+  min-height: 90vh;
+}
+
+.main ol {
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.main code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+a.primary {
+  gap: 8px;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: var(--bright-red);
+  }
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 180px;
+}
+
+.gamelist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 70vh;
+  margin-bottom: -70vh;
+}
+
+.game {
+  position: relative;
+  padding: 0;
+  width: min-content;
+  margin: 3vh;
+  animation: push-fade-in .5s forwards 1;
+  opacity: 0;
+  z-index: 2;
+}
+
+.game:hover {
+  z-index: 1;
+}
+
+.game:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.game:nth-child(3) {
+  animation-delay: .4s;
+}
+
+.game:nth-child(4) {
+  animation-delay: .6s;
+}
+
+.game:nth-child(5) {
+  animation-delay: .8s;
+}
+
+.game:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.game a {
+  position: relative;
+  display: block;
+  border: 15px solid var(--purple);
+  border-radius: 2.5rem;
+  background-color: #fff;
+  color: #000 !important; 
+}
+
+.game:hover:before,
+.game:hover:after {
+	position: absolute;
+	content: "";
+	top: 12.5%;
+	left: 25%;
+  width: 50%;
+  height: 75%;
+	border: solid 5px #fff;
+	border-radius: 100rem;
+  z-index: -100;
+  background-color: transparent;
+  transform-origin: center;
+}
+
+.game:hover:after {
+	border: solid 20px #fff;
+}
+
+.game:hover:before {
+	animation: ripple .5s linear 1;
+}
+
+.game:hover:after {
+	animation: ripple .5s .15s linear 1;
+}
+
+h2.game_name {
+  font-size: 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .125s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1.375rem;
+}
+
+.game:hover h2 {
+  opacity: 1;
+}
+
+.game img {
+  width: auto;
+  height: 45vh;
+  border-radius: 1.375rem;
+  opacity: 1;
+  transition: opacity .125s ease-in-out;
+}
+
+div.game_meta {
+  margin-bottom: -.25rem;
+}
+
+.game_header {
+  margin: 0;
+}
+
+span.episode,
+span.season {
+  font-family: 'ff-prater-script-web', sans-serif;
+  display: inline-block;
+  font-size: 14px;
+}
+
+p.description {
+  margin-bottom: 0;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}

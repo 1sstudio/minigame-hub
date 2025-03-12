@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'Upheaval';
+  src: url('/upheavtt.woff2') format('woff2');
+}
+
+.gamecontainer {
+  position: relative;
+  width: 123.7vh;
+  height: 72vh;
+  max-width: 100%;
+  background-color: #ccc;
+  border: 1.5rem solid var(--yellow);
+  border-radius: 1.5rem;
+  overflow: visible;
+  animation: push-fade-in .5s forwards 1;
+}
+
+
+.frame {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.frame:after {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: -3rem;
+  height: 2vh;
+  width: 150%;
+  background: url('/dotted-border.svg') no-repeat;
+  z-index: 10;
+}
+
+.frame:before {
+  content: "";
+  position: absolute;
+  right: 40%;
+  top: -3rem;
+  height: 2vh;
+  width: 200%;
+  background: url('/dotted-border.svg') no-repeat;
+  background-position-x: right;
+}
+
+.unityframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  margin: 0; padding: 0;
+  z-index: 2;
+}
+.unityframe:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.loadscreen {
+  width: 100%;
+  aspect-ratio: 16/9;
+  color: black;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Upheaval';
+  pointer-events: none;
+  position: relative;
+  z-index: 5;
+}
+.loadscreencontent {
+  font-size: 400%;
+  margin-right: 0.58em;
+  animation: gutter steps(4,end) 900ms infinite;
+}
+.loadscreencontent:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom; 
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes gutter {
+  to {
+      margin-right: 0;
+  }
+}
+@keyframes ellipsis {
+  to {
+      width: 0.58em;
+  }
+}
+
+.fullscreen {
+  background-color: var(--yellow);
+  min-width: 3vh;
+  min-height: 3vh;
+  border: 0;
+  padding: .25rem;
+  position: absolute;
+  bottom: 2vh;
+  right: 2vh;
+  z-index: 3;
+}
+
+.fullscreen:before {
+  content: url('/fullscreen.svg');
+  line-height: 0;
+  display: block;
+}
