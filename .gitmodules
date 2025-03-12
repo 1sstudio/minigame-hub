@@ -1,0 +1,6 @@
+[submodule "app/lib"]
+	path = app/lib
+	url = git@github.com:1sstudio/minigame-hub-lib.git
+[submodule "app/vip"]
+	path = app/vip
+	url = git@github.com:1sstudio/minigame-hub-vip.git
